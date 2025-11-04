@@ -15,7 +15,7 @@ const DoctorProfile = () => {
 
   const getDoctorProfile = async () => {
     try {
-      const { data } = await axios.get(backendUrl + 'api/doctor/profile', { headers: { token: dToken } })
+      const { data } = await axios.get(`${backendUrl}api/doctor/profile`, { headers: { token: dToken } })
       if (data.success) {
         setProfileState(data.doctorData)
         dispatch(setDoctorProfileData({ data: data.doctorData }))
@@ -27,7 +27,7 @@ const DoctorProfile = () => {
 
   const updateDoctorProfile = async () => {
     try {
-      const {data} = await axios.post(backendUrl+'api/doctor/update-profile',  {fees: ProfileState.fees, available: ProfileState.available, address: ProfileState.address }, {headers: {token: dToken}})
+      const {data} = await axios.post(`${backendUrl}api/doctor/update-profile`,  {fees: ProfileState.fees, available: ProfileState.available, address: ProfileState.address }, {headers: {token: dToken}})
       if (data.success) {
         toast.success(`${data.message}`)
         getDoctorProfile()

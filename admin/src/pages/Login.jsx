@@ -25,7 +25,7 @@ const Login = () => {
     e.preventDefault();
     try {
       if (state == 'Admin') {
-        const {data} = await axios.post(backendUrl+'api/admin/login', {email: value.email,password: value.password})
+        const {data} = await axios.post(`${backendUrl}'api/admin/login`, {email: value.email,password: value.password})
         if (data.success) {
           localStorage.setItem('token', data.token)
           dispatch(setToken({data: data.token}))
@@ -34,7 +34,7 @@ const Login = () => {
           toast.error(`${data.message}`)
         }
       }else{
-        const {data} = await axios.post(backendUrl+'api/doctor/login', {email: value.email, password: value.password})
+        const {data} = await axios.post(`${backendUrl}api/doctor/login`, {email: value.email, password: value.password})
         if (data.success) {
           localStorage.setItem('dToken', data.token)
           dispatch(setDoctorToken({data: data.token}))

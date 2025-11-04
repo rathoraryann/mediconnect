@@ -16,7 +16,7 @@ const DoctorDashboard = () => {
   const getDashboardData = async () => {
     console.log('getDashData')
     try {
-      const { data } = await axios.get(backendUrl + "api/doctor/dashboard", {
+      const { data } = await axios.get(`${backendUrl}api/doctor/dashboard`, {
         headers: { token: dToken },
       });
       if (data.success) {
@@ -33,7 +33,7 @@ const DoctorDashboard = () => {
   const getAppointments = async () => {
     try {
       const { data } = await axios.get(
-        backendUrl + "api/doctor/appointments",
+        `${backendUrl}api/doctor/appointments`,
         { headers: { token: dToken } }
       );
       if (data.success) {
@@ -51,7 +51,7 @@ const DoctorDashboard = () => {
   const cancelAppointment = async (appointmentId) => {
     try {
       const { data } = await axios.post(
-        backendUrl + "api/doctor/cancel-appointment",
+        `${backendUrl}api/doctor/cancel-appointment`,
         { appointmentId },
         { headers: { token: dToken } }
       );
@@ -69,7 +69,7 @@ const DoctorDashboard = () => {
   const completeAppointment = async (appointmentId) => {
     try {
       const { data } = await axios.post(
-        backendUrl + "api/doctor/complete-appointment",
+        `${backendUrl}api/doctor/complete-appointment`,
         { appointmentId },
         { headers: { token: dToken } }
       );
