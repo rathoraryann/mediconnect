@@ -13,7 +13,7 @@ import Footer from './components/Footer'
 import {toast, ToastContainer} from 'react-toastify'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
-import { setDoctors } from './store/slices/doctorSlice'
+import { setDoctors } from './store/slices/DoctorSlice'
 import { setUser } from './store/slices/userSlice'
 
 const App = () => {
