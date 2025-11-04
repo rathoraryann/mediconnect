@@ -12,7 +12,7 @@ const DoctorsList = () => {
 
   const fetchDoctors = async () => {
     try {
-      const { data } = await axios.get(`${backendUrl}/api/admin/all-doctors`, {
+      const { data } = await axios.get(`${backendUrl}api/admin/all-doctors`, {
         headers: { token },
       });
       dispatch(setDoctors({ data: data.doctors }));
@@ -24,7 +24,7 @@ const DoctorsList = () => {
   const changeAvailabilityHandler = async (docId) => {
     try {
       const { data } = await axios.post(
-        `${backendUrl}/api/admin/change-availability`, {docId},
+        `${backendUrl}api/admin/change-availability`, {docId},
         { headers: { token } }
       );
       if (data.success) {

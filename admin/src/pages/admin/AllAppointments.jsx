@@ -16,7 +16,7 @@ const AllAppointments = () => {
 
   const getAllAppointments = async () => {
     try {
-      const { data } = await axios.get(backendUrl + "/api/admin/appointments", {
+      const { data } = await axios.get(backendUrl + "api/admin/appointments", {
         headers: { token },
       });
       if (data.success) {
@@ -30,7 +30,7 @@ const AllAppointments = () => {
   const cancelAppointment = async (appointmentId) => {
     try {
       const { data } = await axios.post(
-        backendUrl + "/api/admin/cancel-appointment",
+        backendUrl + "api/admin/cancel-appointment",
         { appointmentId },
         { headers: { token } }
       );

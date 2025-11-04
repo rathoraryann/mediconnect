@@ -14,7 +14,7 @@ const Dashboard = () => {
 
   const getDashData = async () => {
     try {
-      const { data } = await axios.get(backendUrl + "/api/admin/dashboard", {
+      const { data } = await axios.get(backendUrl + "api/admin/dashboard", {
         headers: { token },
       });
       if (data.success) {

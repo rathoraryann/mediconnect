@@ -25,7 +25,7 @@ const MyProfile = () => {
       newForm.append('dob', formData.dob)
 
       image && newForm.append('image', image)
-      const {data} = await axios.post(backendUrl+'/api/user/update-profile', newForm, {headers: {token}})
+      const {data} = await axios.post(backendUrl+'api/user/update-profile', newForm, {headers: {token}})
       if (data.success) {
         toast.success(`${data.message}`)
         dispatch(setUser({data: data.user}))

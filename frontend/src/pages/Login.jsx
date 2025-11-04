@@ -19,7 +19,7 @@ const Login = () => {
     e.preventDefault();
     try {
       if (state == 'Sign Up') {
-      const {data} = await axios.post(backendUrl+'/api/user/register', {name, password, email})
+      const {data} = await axios.post(backendUrl+'api/user/register', {name, password, email})
       if (data.success) {
         localStorage.setItem('token', data.token)
         dispatch(setToken({data : data.token}))
@@ -29,7 +29,7 @@ const Login = () => {
         toast.error(`${data.message}`)
       }
     }else{
-      const {data} = await axios.post(backendUrl+'/api/user/login', {password, email})
+      const {data} = await axios.post(backendUrl+'api/user/login', {password, email})
       if (data.success) {
         localStorage.setItem('token', data.token)
         dispatch(setToken({data : data.token}))

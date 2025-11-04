@@ -19,7 +19,7 @@ const DoctorAppointments = () => {
   const getAppointments = async () => {
     try {
       const { data } = await axios.get(
-        backendUrl + "/api/doctor/appointments",
+        backendUrl + "api/doctor/appointments",
         { headers: { token: dToken } }
       );
       if (data.success) {
@@ -37,7 +37,7 @@ const DoctorAppointments = () => {
   const cancelAppointment = async (appointmentId) => {
     try {
       const { data } = await axios.post(
-        backendUrl + "/api/doctor/cancel-appointment",
+        backendUrl + "api/doctor/cancel-appointment",
         { appointmentId },
         { headers: { token: dToken } }
       );
@@ -55,7 +55,7 @@ const DoctorAppointments = () => {
   const completeAppointment = async (appointmentId) => {
     try {
       const { data } = await axios.post(
-        backendUrl + "/api/doctor/complete-appointment",
+        backendUrl + "api/doctor/complete-appointment",
         { appointmentId },
         { headers: { token: dToken } }
       );

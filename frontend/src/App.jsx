@@ -24,7 +24,7 @@ const App = () => {
   
   const getDoctors = async () => {
     try {
-      const { data } = await axios.get(`${backendUrl}/api/doctor/list`);
+      const { data } = await axios.get(`${backendUrl}+'api/doctor/list`);
       dispatch(setDoctors({ data: data.doctors }));
     } catch (error) {
       toast.error(`${error.message}`);
@@ -33,7 +33,7 @@ const App = () => {
 
   const getUserData = async () =>{
     try {
-      const {data} = await axios.get(`${backendUrl}/api/user/get-profile`, {headers: {token}})
+      const {data} = await axios.get(backendUrl+'api/user/get-profile', {headers: {token}})
       dispatch(setUser({data: data.userData}))
     } catch (error) {
       toast.error(`${error.message}`)
