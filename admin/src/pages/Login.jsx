@@ -47,6 +47,20 @@ const Login = () => {
       toast.error(`${error.message}`);
     }
   }
+
+  const getAdminCredentials = () =>{
+    setValue({
+      email: "admin@mediconnect.com",
+      password: "Password@2024"
+    })
+  }
+
+  const getDoctorCredentials = () =>{
+    setValue({
+      email: "nayra@mediconnect.com",
+      password: "Aryan@19"
+    })
+  }
   
   return (
     <form onSubmit={onSubmitHandler} className='min-h-[80vh] flex items-center'>
@@ -61,6 +75,9 @@ const Login = () => {
           <input value={value.password} onChange={(e)=>{setValue({...value, password: e.target.value})}} type="password" required className='border border-[#DADADA] rounded w-full p-2 m-1'/>
         </div>
         <button className='bg-primary text-white w-full py-2 rounded-md text-base' >Login</button>
+        {state == 'Admin' ?<button type='button' className='bg-primary text-white w-full py-2 rounded-md text-base' onClick={()=>getAdminCredentials()}>Try Demo Credentials(Admin)</button>: 
+        <button type='button' className='bg-primary text-white w-full py-2 rounded-md text-base' onClick={()=>getDoctorCredentials()}>Try Demo Credentials(Doctor)</button>
+}
         {
           state == 'Admin' ?
           <p>Doctor Login?<span onClick={()=>setState('Doctor')} className='text-primary underline cursor-pointer'> Click here</span></p>
