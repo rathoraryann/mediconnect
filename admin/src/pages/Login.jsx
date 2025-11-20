@@ -57,8 +57,8 @@ const Login = () => {
 
   const getDoctorCredentials = () =>{
     setValue({
-      email: "nayra@mediconnect.com",
-      password: "Aryan@19"
+      email: "vineeta@mediconnect.com",
+      password: "Doctor@123"
     })
   }
   
