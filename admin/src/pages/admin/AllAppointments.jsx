@@ -78,7 +78,7 @@ const AllAppointments = () => {
                   />{" "}
                   <p>{item.userData.name}</p>
                 </div>
-                {item.userData.dob instanceof Date ? (
+                {(item.userData.dob != "Not Selected") ? (
                   <p className="max-sm:hidden">
                     {calculateAge(item.userData.dob)}
                   </p>
