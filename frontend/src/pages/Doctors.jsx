@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 
 
 const Doctors = () => {
-
   const navigate = useNavigate();
   const doctors = useSelector((state) => state.doctors.doctors);
   const {speciality} = useParams();
@@ -14,10 +13,14 @@ const Doctors = () => {
   const applyfilter = () =>{
     if(speciality){
       setFilterDoctor(doctors.filter(doct => doct.speciality  == speciality))
+      if (speciality == "General-physician") {
+        setFilterDoctor(doctors.filter(doct => doct.speciality == "General Physician"))
+      }
     }else{
       setFilterDoctor(doctors)
     }
   }
+
 
   useEffect(()=>{
     applyfilter();
@@ -29,7 +32,7 @@ const Doctors = () => {
       <div className="flex flex-col sm:flex-row items-start gap-5 mt-5">
         <button onClick={()=>setShowFilter(prev => !prev)} className={`py-1 px-3 border rounded text-sm transition-all sm:hidden ${showFilter? 'bg-primary text-white' : ''}`}>Filters</button>
         <div className={`flex-col gap-4 text-sm text-gray-600 ${showFilter ? 'flex' : 'hidden sm:flex'}`}>
-          <p onClick={()=> speciality == 'General physician' ? navigate('/doctors') : navigate('/doctors/General physician')} className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${speciality=="General physician" ? "bg-gray-100 text-black " : ""}`}>General Physician</p>
+          <p onClick={()=> speciality == 'General physician' ? navigate('/doctors') : navigate('/doctors/General-physician')} className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${speciality=="General physician" ? "bg-gray-100 text-black " : ""}`}>General Physician</p>
           <p onClick={()=> speciality == 'Gynecologist' ? navigate('/doctors') : navigate('/doctors/Gynecologist')} className={`w-[94vw] sm:w-auto py-1.5 pl-3 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${speciality=="Gynecologist"?"bg-gray-100 text-black " : ""}`}>Gynecologist</p>
           <p onClick={()=> speciality == 'Dermatologist' ? navigate('/doctors') : navigate('/doctors/Dermatologist')} className={`w-[94vw] sm:w-auto py-1.5 pl-3 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${speciality=="Dermatologist"?"bg-gray-100 text-black " : ""}`}>Dermatologist</p>
           <p onClick={()=> speciality == 'Pediatricians' ? navigate('/doctors') : navigate('/doctors/Pediatricians')} className={`w-[94vw] sm:w-auto py-1.5 pl-3 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${speciality=="Pediatricians"?"bg-gray-100 text-black " : ""}`}>Pediatricians</p>
